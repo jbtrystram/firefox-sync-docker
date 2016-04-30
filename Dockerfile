@@ -5,19 +5,19 @@ MAINTAINER JB Trystram <jib@trystram.net>
 
 #Install what's needed
 RUN apk update && \
-    apk add git python-dev g++ sqlite3 python-virtualenv && \
-    ./bin/pip install pysqlite
+    apk add git python python-dev py-pip g++ sqlite build-base && \
+    pip install virtualenv && \
     rm -rf /var/cache/apk/*
 
 #Build firefox sync
-RUN mkdir /ffsync && cd /ffsync \
-    git clone https://github.com/mozilla-services/syncserver
-    cd ./server-full && make build
+RUN git clone https://github.com/mozilla-services/syncserver && \
+    cd /syncserver && make build
 
 EXPOSE 80
 
 VOLUME ["/data"]
 
-COPY entry.sh /entry.sh
+ADD entry.sh /entry.sh
+RUN chmod +x /entry.sh 
 
 ENTRYPOINT ["/entry.sh"]
