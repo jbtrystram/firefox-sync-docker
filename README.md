@@ -1,11 +1,16 @@
 # firefox-sync-docker
 A simple dockerfile to host a firefoxsync server
 
+## DISCLAIMER
+This won't work as a standalone thing if you want to host your firefox sync system. 
+You also need an account server as well as other things.
+See [here](https://docs.services.mozilla.com/howtos/run-fxa.html) and [here](https://github.com/michielbdejong/fxa-self-hosting)
+
 ## Usage :
 
 First build the image (after cloning the repo):
 `docker build -t yourname/ffsync:last`
-
+ezez
 Then run it :
 ```
 docker run -d --name ffsync \
