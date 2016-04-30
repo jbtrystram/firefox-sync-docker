@@ -16,5 +16,10 @@ docker run -d --name ffsync \
 yourname/ffsync:last
 """
 
-
 That will give you a server running on http://localhost:5000
+
+##Keeping the data : 
+A simple way to keep the data :
+"""
+ docker run -d --name ffsync_data --volumes-from ffsync busybox true
+"""
