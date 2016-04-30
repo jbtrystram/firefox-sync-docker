@@ -24,7 +24,7 @@ sed -i '/public_url =/ c\public_url = http://'${DOMAIN}':'${PORT}'' /syncserver/
 sed -i '/sqluri =/ c\sqluri = sqlite:////data/dbsync.db' /syncserver/syncserver.ini
 sed -i '/port =/ c\port = '${PORT}'' /syncserver/syncserver.ini
 
-#Allow users to register or not
+#Don't users to register
 [ -n "${NO_REGISTER:-}" ] && sed -i '/allow_new_users =/ c\allow_new_users = false' /syncserver/syncserver.ini
 
 
